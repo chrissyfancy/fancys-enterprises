@@ -1,0 +1,17 @@
+<%= form_for(produce_order) do |f| %>
+  <% if produce_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(produce_order.errors.count, "error") %> prohibited this produce_order from being saved:</h2>
+
+      <ul>
+      <% produce_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

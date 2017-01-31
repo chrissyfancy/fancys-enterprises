@@ -1,0 +1,98 @@
+<%= form_for(@moving_job) do |f| %>
+  <% if @moving_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@moving_job.errors.count, "error") %> prohibited this moving job from being submitted:</h2>
+
+      <ul>
+      <% @moving_job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= f.label :customer_name %>
+    <%= f.text_field :customer_name %>
+  </div>
+
+  <div class="row">
+    <%= f.label :customer_email %>
+    <%= f.text_field :customer_email %>
+  </div>
+
+  <div class="row">
+    <%= f.label :customer_phone_no, "Full Name" %>
+    <%= f.text_field :customer_phone_no %>
+  </div>
+
+  <h4>Where are you moving from?</h4>
+
+  <div class="row">
+    <%= f.label :customer_street_address, "Street Address" %>
+    <%= f.text_field :customer_street_address %>
+  </div>
+
+  <div class="row">
+    <%= f.label :customer_town, "Town" %>
+    <%= f.text_field :customer_town %>
+  </div>
+
+  <div class="row">
+    <%= f.label :customer_state, "State" %>
+    <%= f.select(:customer_state, @state_collection, {include_blank: true}) %>
+  </div>
+
+  <div class="row">
+    <%= f.label :customer_zipcode, "Zipcode" %>
+    <%= f.text_field :customer_zipcode %>
+  </div>
+
+  <h4>Where are you moving to?</h4>
+
+  <div class="row">
+    <%= f.label :new_customer_address, "Street Address" %>
+    <%= f.text_field :new_customer_address %>
+  </div>
+
+  <div class="row">
+    <%= f.label :new_customer_town, "Town" %>
+    <%= f.text_field :new_customer_town %>
+  </div>
+
+  <div class="row">
+    <%= f.label :new_customer_state, "State" %>
+    <%= f.select(:new_customer_state, @state_collection, {include_blank: true}) %>
+  </div>
+
+  <div class="row">
+    <%= f.label :new_customer_zipcode, "Zipcode" %>
+    <%= f.text_field :new_customer_zipcode %>
+  </div>
+
+<h4>Additional Information</h4>
+
+  <div class="row">
+    <%= f.label :date_of_move, "Date of Move" %>
+    <%= f.text_area :date_of_move %>
+  </div>
+
+  <div class="row">
+    <%= f.label :estimated_amount_of_hours, "How many hours do you estimate the move taking?" %>
+    <%= f.text_field :estimated_amount_of_hours %>
+  </div>
+
+  <div class="row">
+    <%= f.label :requested_amount_of_movers, "How many movers do you estimate needing?" %>
+    <%= f.text_field :requested_amount_of_movers %>
+  </div>
+
+  <div class="row">
+    <%= f.label :customer_message, "Is there anything else you would like to specify about the move?" %>
+    <%= f.text_area :customer_message %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit Moving Inquiry" %>
+  </div>
+<% end %>

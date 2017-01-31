@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Fancys</title>
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <title><%= content_for?(:title) ? yield(:title) : "Fancys Enterprises LTD" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header-login-signup">
+      <%= render "layouts/header" %>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <footer class="footer-distributed">
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>

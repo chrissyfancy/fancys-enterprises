@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :customers
+  resources :produce_orders
+  devise_for :users
+  resources :moving_jobs
+
+  root "moving_jobs#index"
 end
