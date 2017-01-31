@@ -1,7 +1,8 @@
 <h1>Fancy's Moving & Storage</h1>
 
-<% @all_jobs.each do |job| %>
-  <%= link_to job.customer_name, moving_job_path(job) %>
+<% if @all_jobs %>
+  <% @all_jobs.each do |job| %>
+    <%= link_to job.customer_name, moving_job_path(job) %>
+  <% end %>
 <% end %>
-
 <%= link_to "Submit a Moving Inquiry", new_moving_job_path %>
